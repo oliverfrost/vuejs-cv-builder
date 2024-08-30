@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app id="cv-builder" class="w-100">
     <v-navigation-drawer v-model="drawer">
       <v-sheet class="pa-4" color="grey-lighten-4">
         <v-avatar class="mb-4" color="grey-darken-1" size="64"></v-avatar>
@@ -8,8 +8,6 @@
       </v-sheet>
 
       <v-divider></v-divider>
-
-      <!-- <v-icon :icon="mdiAccountGroup" /> -->
 
       <v-list>
         <v-list-item
@@ -26,10 +24,10 @@
     <v-app-bar>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Manatal Clone</v-app-bar-title>
+      <v-app-bar-title>CV Builder App</v-app-bar-title>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="w-100">
       <RouterView />
     </v-main>
   </v-app>
@@ -45,13 +43,15 @@ const drawer = ref(null)
 </script>
 
 <script lang="ts">
+const links = [
+  ['mdi-account-group', 'Candidates', '/candidates'],
+  ['mdi-file-account', 'Templates', '/templates']
+]
+
 export default {
   data: () => ({
     drawer: null,
-    links: [
-      ['mdi-account-group', 'Candidates', 'candidates'],
-      ['mdi-file-account', 'Templates', 'templates']
-    ]
+    links
   })
 }
 </script>
